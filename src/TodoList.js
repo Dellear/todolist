@@ -64,7 +64,7 @@ class TodoList extends Component {
   }
 
   handleItemDelete = (delIndex) => {
-    this.setState((prevState) => {
+    this.setState(function (prevState) {
       const list = prevState.list.filter((item, index) => delIndex !== index);
       return { list };
     });
