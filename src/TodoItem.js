@@ -29,7 +29,7 @@ class TodoItem extends Component {
     // 当父组件的render函数被重新执行了，子组件的componentWillReceiveProps就会执行
     // 如果一个组件第一次存在于父组件中，不会执行
     // 如果这个组件之前已经存在于父组件中，才会执行
-    componentWillReceiveProps() {
+    UNSAFE_componentWillReceiveProps() {
         console.log('child componentWillReceiveProps');
     }
 

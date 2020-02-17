@@ -18,7 +18,7 @@ class TodoList extends Component {
   }
   
   // 当组件即将被挂载到页面时自动执行
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     console.log('componentWillMount');
   }
 
@@ -56,7 +56,7 @@ class TodoList extends Component {
     }
   }
 
-  componentWillReceiveProps() {
+  UNSAFE_componentWillReceiveProps() {
     console.log('componentWillReceiveProps');
   }
 
@@ -68,7 +68,7 @@ class TodoList extends Component {
 
   // 组件被更新之前，它会自动执行，但是它在shouldComponentUpdate之后执行。
   // 只有在shouldComponentUpdate返回真值时，componentWillUpdate才会执行
-  componentWillUpdate() {
+  UNSAFE_componentWillUpdate() {
     console.log('componentWillUpdate');
   }
 
