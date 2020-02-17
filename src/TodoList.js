@@ -16,15 +16,13 @@ class TodoList extends Component {
       ]
     };
   }
-
-  componentDidMount() {
-    // 输入框聚焦
-    const node = this.input.current;
-    if(node) {
-      node.focus();
-    }
+  
+  // 当组件即将被挂载到页面时自动执行
+  componentWillMount() {
+    console.log('componentWillMount');
   }
 
+  // 渲染组件
   render() {
     console.log('render list');
     return (
@@ -46,6 +44,21 @@ class TodoList extends Component {
         </section>
       </Fragment>
     );
+  }
+
+  // 组件被挂载到页面之后，自动执行
+  componentDidMount() {
+    console.log('componentDidMount');
+    // 输入框聚焦
+    const node = this.input.current;
+    if(node) {
+      node.focus();
+    }
+  }
+
+  shouldComponentUpdate() {
+    console.log('shouldComponentUpdate');
+    return true;
   }
 
   getTodoItems() {
