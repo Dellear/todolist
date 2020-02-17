@@ -56,9 +56,29 @@ class TodoList extends Component {
     }
   }
 
+  componentWillReceiveProps() {
+    console.log('componentWillReceiveProps');
+  }
+
+  // 组件被更新之前，它会自动执行，如果返回值是假值，则组件会终止update
   shouldComponentUpdate() {
     console.log('shouldComponentUpdate');
     return true;
+  }
+
+  // 组件被更新之前，它会自动执行，但是它在shouldComponentUpdate之后执行。
+  // 只有在shouldComponentUpdate返回真值时，componentWillUpdate才会执行
+  componentWillUpdate() {
+    console.log('componentWillUpdate');
+  }
+
+  // 组件更新完成后会自动执行
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
+  }
+
+  componentWillUnmount() {
+    console.log('componentWillUnmount');
   }
 
   getTodoItems() {
