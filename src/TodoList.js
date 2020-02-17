@@ -6,6 +6,8 @@ class TodoList extends Component {
 
   constructor(props) {
     super(props);
+    this.input = React.createRef();
+    // 当组件的state或者props发生改变后，render函数就会重新执行
     this.state = {
       inputValue: '',
       list: [
@@ -15,7 +17,16 @@ class TodoList extends Component {
     };
   }
 
+  componentDidMount() {
+    // 输入框聚焦
+    const node = this.input.current;
+    if(node) {
+      node.focus();
+    }
+  }
+
   render() {
+    console.log('render list');
     return (
       <Fragment>
         <div>TodoList</div>
@@ -27,9 +38,10 @@ class TodoList extends Component {
           placeholder="请输入"
           value={this.state.inputValue}
           onChange={this.handleInputChange}
+          ref={this.input}
         />
         <button onClick={this.handleBtnClick}>提交</button>
-        <section>
+        <section ref={section => { this.section = section }}>
           {this.getTodoItems()}
         </section>
       </Fragment>
@@ -39,7 +51,7 @@ class TodoList extends Component {
   getTodoItems() {
     return this.state.list.map((item, index) => (
       <TodoItem 
-        key={index}
+        key={item}
         content={item} 
         index={index}
         deleteItem={this.handleItemDelete} 
@@ -60,7 +72,9 @@ class TodoList extends Component {
     this.setState((prevState) => ({
       list: [...prevState.list, prevState.inputValue],
       inputValue: ''
-    }))
+    }), () => {
+      console.log(this.section.querySelectorAll('div').length);
+    })
   }
 
   handleItemDelete = (delIndex) => {
