@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';
 import TodoItem from './TodoItem';
+import Toggle from './Toggle';
 import './style.css';
 
 class TodoList extends Component {
@@ -43,6 +44,8 @@ class TodoList extends Component {
         <section ref={section => { this.section = section }}>
           {this.getTodoItems()}
         </section>
+        <br/>
+        <Toggle/>
       </Fragment>
     );
   }
