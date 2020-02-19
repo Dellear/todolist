@@ -14,6 +14,10 @@ class TodoItem extends Component {
         test: 'hello',
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.props.content !== nextProps.content;
+    }
+
     render() {
         console.log('render item');
         // 当父组件的render函数被运行时，它的子组件的render都将被重新执行

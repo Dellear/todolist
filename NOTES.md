@@ -3,7 +3,7 @@
 ### 生命周期函数
 ![React生命周期](./4-8React-cycle-function.jpg)
 
-#### initialization
+#### initialization(不存在)
 ##### 组件初始化，执行Constructor，初始state和props
 
 #### componentWillMount

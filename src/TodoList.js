@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import axios from 'axios';
 import TodoItem from './TodoItem';
 import './style.css';
 
@@ -47,8 +48,18 @@ class TodoList extends Component {
   }
 
   // 组件被挂载到页面之后，自动执行
-  componentDidMount() {
+  async componentDidMount() {
     console.log('componentDidMount');
+    
+    try {
+      const res = await axios.get('/api/todolist');
+      console.log(res);
+      this.setState(() => ({
+        list: res.data
+      }));
+    } catch (error) {
+      console.log(error);
+    }
     // 输入框聚焦
     const node = this.input.current;
     if(node) {
